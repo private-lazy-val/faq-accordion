@@ -18,7 +18,10 @@
     --fw-regular: 400;
     --fw-bold: 700;
 
-    --fs-200: 12px;
+    --fs-200: .75rem;
+    --fs-300: 1rem;
+    --fs-350: 2rem;
+    --fs-400: 3rem;
 }
 
 *,
@@ -44,7 +47,7 @@ h4 {
 }
 
 img, svg {
-    height: 100%;
+    height: auto;
     max-width: 100%;
     display: block;
 }
@@ -59,9 +62,7 @@ img, svg {
     font-size: var(--fs-200);
     font-weight: var(--fw-regular);
     background-image: linear-gradient(to bottom left, var(--clr-gradient-1), var(--clr-gradient-2));
-    color: var(--clr-text-medium);
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: var(--clr-text-dark);
     padding: 0 20px;
 }
 
@@ -71,57 +72,153 @@ img, svg {
     height: 510px;
     max-width: 920px;
     width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-gap: 10%;
+    background-image: url(/images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 1260% 65%;
+    padding-right: 2rem;
+}
+
+.faq__accordion {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    padding-right: 6%;
+    flex-direction: column;
+    align-self: center;
 }
 
-.faq__img-container {
+.accordion {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion__item {
+    max-width: 350px;
+    border-bottom: 1px solid var(--clr-dividers);
+    cursor: pointer;
+}
+
+.faq__h1 {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+    margin-bottom: 1rem;
+}
+
+.accordion__answer {
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
-.faq__img_mobile {
+.accordion__h2 {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-regular);
+    margin: 1.2rem 0;
+    color: var(--clr-text-medium);
+}
+
+.accordion__question {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion__btn {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.accordion__img {
+    transition: transform .2s ease-in;
+}
+
+.faq__outer-wrapper {
+    position: relative;
+}
+
+.faq__inner-wrapper {
+    background-image: url(/images/illustration-woman-online-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 120% center;
+    height: 100%;
+}
+
+.faq__main-illustration_mobil {
     display: none;
 }
 
-.faq__img_desktop {
-    transform: translateX(-16%);
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-}
-
-.faq__img-container::before {
-    content: url('/images/illustration-box-desktop.svg');
-    width: 90px;
-    height: 104px;
+.faq__img {
     position: absolute;
-    bottom: 38%;
-    left: -14%;
-    z-index: 3;
+    top: 42%;
+    left: -25%;
 }
 
-.faq__background-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+.active .accordion__answer {
+    padding-bottom: 1.2rem;
+    font-size: var(--fs-200);
+    color: var(--clr-text-light);
 }
 
-.faq__background-img::after {
-    content: url('/images/bg-pattern-desktop.svg');
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    left: -63%;
-    top: -57%;
-    z-index: 1;
+.active .accordion__img {
+    transform: rotate(180deg);
 }
 
-.faq__accordion-container {
-    max-width: 350px;
+.active .accordion__h2 {
+    font-weight: var(--fw-bold);
+}
+
+@media only screen and (max-width: 958px) {
+    .faq {
+        background-image: none;
+        gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .faq__h1 {
+        font-size: var(--fs-350);
+    }
+
+    .accordion__h2 {
+        font-size: var(--fs-200);
+    }
+}
+
+@media only screen and (max-width: 744px) {
+    .faq {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        justify-items: center;
+        grid-gap: 0;
+        background-image: url(/images/bg-pattern-mobile.svg);
+        background-position: 50% 0%;
+    }
+
+    .faq__h1 {
+        margin-inline: auto;
+    }
+
+    .faq__img {
+        display: none;
+    }
+
+    .faq__outer-wrapper {
+        position: static;
+    }
+
+    .faq__inner-wrapper {
+        display: none;
+    }
+
+    .faq__main-illustration_mobil {
+        display: block;
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 }
