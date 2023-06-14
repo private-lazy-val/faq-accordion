@@ -213,7 +213,7 @@ img, svg {
         display: none;
     }
 
-    .faq__main-illustration_mobil {
+    .faq__illustration-mobile {
         display: block;
         position: absolute;
         top: 13%;
