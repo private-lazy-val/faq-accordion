@@ -1,4 +1,4 @@
-import './style.css';
+import '/style.css';
 
 const faqElement = document.querySelector('.faq__accordion');
 faqElement.addEventListener('click', (e) => {
