@@ -10,8 +10,9 @@
     --clr-text-medium: hsl(237, 12%, 33%);
     --clr-text-light: hsl(240, 6%, 50%);
     --clr-text-accent: hsl(14, 88%, 65%);
+    --clr-text-accent-faded: hsla(14, 88%, 65%, 0.8);
     --clr-dividers: hsl(240, 5%, 91%);
-    --clr-card-background: #FFF;
+    --clr-card-background: hsl(255, 255%, 255%);
 
     --ff-base: 'Kumbh Sans', sans-serif;
 
@@ -19,9 +20,9 @@
     --fw-bold: 700;
 
     --fs-200: .75rem;
-    --fs-300: 1rem;
+    --fs-300: .9rem;
     --fs-350: 2rem;
-    --fs-400: 3rem;
+    --fs-400: 2.5rem;
 }
 
 *,
@@ -74,21 +75,23 @@ img, svg {
     width: 100%;
     display: grid;
     grid-template-columns: 400px 1fr;
-    grid-gap: 10%;
+    grid-gap: 8%;
     background-image: url(/images/bg-pattern-desktop.svg);
     background-repeat: no-repeat;
     background-position: 1260% 65%;
     padding-right: 2rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1), 0 40px 40px rgba(0, 0, 0, .2);
 }
 
 .faq__accordion {
     display: flex;
     flex-direction: column;
     align-self: center;
+    margin-top: 5rem;
 }
 
 .accordion {
-    height: 100%;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -103,24 +106,22 @@ img, svg {
     font-size: var(--fs-400);
     font-weight: var(--fw-bold);
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
-.accordion__answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-.accordion__h2 {
-    font-size: var(--fs-300);
-    font-weight: var(--fw-regular);
-    margin: 1.2rem 0;
-    color: var(--clr-text-medium);
+abbr[title] {
+    text-decoration: none;
 }
 
 .accordion__question {
     display: flex;
     justify-content: space-between;
+    gap: .5rem;
+    align-items: center;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-regular);
+    margin: 1rem 0;
+    color: var(--clr-text-medium);
 }
 
 .accordion__btn {
@@ -128,20 +129,33 @@ img, svg {
     background-color: transparent;
     padding: 0;
     cursor: pointer;
+    flex-shrink: 0;
+}
+
+.accordion__question:hover {
+    color: var(--clr-text-accent);
 }
 
 .accordion__img {
+    width: 10px;
+    aspect-ratio: 10 / 7;
+    object-fit: cover;
     transition: transform .2s ease-in;
+}
+
+.accordion__answer::selection {
+    background-color: var(--clr-text-accent-faded);
+    color: initial;
 }
 
 .faq__outer-wrapper {
     position: relative;
 }
 
-.faq__inner-wrapper {
+.faq__illustration-desk {
     background-image: url(/images/illustration-woman-online-desktop.svg);
     background-repeat: no-repeat;
-    background-position: 120% center;
+    background-position: 120% 50%;
     height: 100%;
 }
 
@@ -152,41 +166,45 @@ img, svg {
 .faq__img {
     position: absolute;
     top: 42%;
-    left: -25%;
+    left: -30%;
 }
 
-.active .accordion__answer {
-    padding-bottom: 1.2rem;
+.accordion__item[open] .accordion__question {
+    color: var(--clr-text-dark);
+    font-weight: var(--fw-bold);
+    transition: color .2s ease-in-out;
+}
+
+.accordion__item[open] .accordion__answer {
+    padding-bottom: 1rem;
     font-size: var(--fs-200);
     color: var(--clr-text-light);
 }
 
-.active .accordion__img {
+.accordion__item[open] .accordion__img {
     transform: rotate(180deg);
 }
 
-.active .accordion__h2 {
-    font-weight: var(--fw-bold);
+@media only screen and (max-width: 1070px) {
+    .faq__img {
+        top: 73%;
+        left: -12%;
+    }
 }
 
-@media only screen and (max-width: 958px) {
+@media only screen and (max-width: 956px) {
     .faq {
-        background-image: none;
-        grid-gap: 5%;
+       background-image: none;
     }
 }
 
 @media only screen and (max-width: 860px) {
-    .faq__h1 {
-        font-size: var(--fs-350);
-    }
-
-    .accordion__h2 {
-        font-size: var(--fs-200);
+    .faq {
+        grid-gap: 3%;
     }
 }
 
-@media only screen and (max-width: 744px) {
+@media only screen and (max-width: 790px) {
     .faq {
         grid-auto-flow: row;
         grid-template-columns: 1fr;
@@ -199,7 +217,12 @@ img, svg {
     }
 
     .faq__h1 {
+        font-size: var(--fs-350);
         margin-inline: auto;
+    }
+
+    .faq__abbr {
+        font-size: var(--fs-350);
     }
 
     .faq__img {
@@ -210,7 +233,7 @@ img, svg {
         position: static;
     }
 
-    .faq__inner-wrapper {
+    .faq__illustration-desk {
         display: none;
     }
 
@@ -222,4 +245,13 @@ img, svg {
         transform: translate(-50%, -50%);
     }
 
+    .faq__accordion {
+        width: 100%;
+        margin-top: 8rem;
+    }
+
+    .accordion__item {
+        width: 100%;
+        margin-inline: auto;
+    }
 }
