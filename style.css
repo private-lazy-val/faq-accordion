@@ -145,7 +145,7 @@ img, svg {
     height: 100%;
 }
 
-.faq__main-illustration_mobil {
+.faq__illustration-mobile {
     display: none;
 }
 
@@ -172,7 +172,7 @@ img, svg {
 @media only screen and (max-width: 958px) {
     .faq {
         background-image: none;
-        gap: 5%;
+        grid-gap: 5%;
     }
 }
 
@@ -190,9 +190,10 @@ img, svg {
     .faq {
         grid-auto-flow: row;
         grid-template-columns: 1fr;
+        align-content: center;
         padding: 0 20px;
         justify-items: center;
-        grid-gap: 0;
+        grid-gap: 12%;
         background-image: url(/images/bg-pattern-mobile.svg);
         background-position: 50% 0%;
     }
