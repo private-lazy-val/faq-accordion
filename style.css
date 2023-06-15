@@ -240,9 +240,7 @@ abbr[title] {
     .faq__illustration-mobile {
         display: block;
         position: absolute;
-        top: 13%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -24%);
     }
 
     .faq__accordion {
