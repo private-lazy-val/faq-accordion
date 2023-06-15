@@ -2,7 +2,7 @@ import './style.css';
 
 const faqElement = document.querySelector('.faq__accordion');
 faqElement.addEventListener('click', (e) => {
-    if (e.target.classList.contains('accordion__question')) {
+    if (e.target.classList.contains('accordion__question') || e.target.classList.contains('accordion__img')) {
         const accordionItem = e.target.closest('.accordion__item');
 
         if (accordionItem.open) {

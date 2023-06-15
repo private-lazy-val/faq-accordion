@@ -120,7 +120,7 @@ abbr[title] {
     align-items: center;
     font-size: var(--fs-300);
     font-weight: var(--fw-regular);
-    margin: 1rem 0;
+    padding: 1rem 0;
     color: var(--clr-text-medium);
 }
 
