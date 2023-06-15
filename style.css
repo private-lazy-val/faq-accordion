@@ -101,6 +101,13 @@ img, svg {
     border-bottom: 1px solid var(--clr-dividers);
     cursor: pointer;
 }
+.accordion__question {
+    list-style-type: none;
+}
+
+.accordion__question::-webkit-details-marker {
+    display: none;
+}
 
 .faq__h1 {
     font-size: var(--fs-400);
