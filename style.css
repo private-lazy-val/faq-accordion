@@ -129,14 +129,7 @@ abbr[title] {
     font-weight: var(--fw-regular);
     padding: 1rem 0;
     color: var(--clr-text-medium);
-}
-
-.accordion__btn {
-    border: 0;
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;
+    max-width: 90%;
 }
 
 .accordion__question:hover {
