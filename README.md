@@ -26,5 +26,5 @@ The following technologies were used to develop this project:
 - Vite!
 
 ### Screenshots
-![Desktop](https://drive.google.com/drive/folders/1VhL3NcOnF3pylQVswPgBj0Hmv3ncHuMz?ths=true)
-![Mobile](https://drive.google.com/drive/folders/1VhL3NcOnF3pylQVswPgBj0Hmv3ncHuMz?ths=true)
+![Desktop](https://github.com/private-lazy-val/faq-accordion/blob/main/faq-desktop.png?raw=true)
+![Mobile](https://github.com/private-lazy-val/faq-accordion/blob/main/faq-mobile.png?raw=true)
